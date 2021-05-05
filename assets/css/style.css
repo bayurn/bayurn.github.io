@@ -133,10 +133,10 @@ h1, h2, h3, h4, h5, h6 {
   overflow-y: auto;
 }
 
-@media (max-width: 670px) {
+@media (max-width: 992px) {
   #header {
     width: 300px;
-    background: url("../img/desk.jpg");
+    background: #fff;
     border-right: 1px solid #e6e9ec;
     left: -300px;
   }
@@ -144,6 +144,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 992px) {
   #main {
+    background: url("../img/desk.jpg") top right no-repeat;
     margin-left: 100px;
   }
 }
