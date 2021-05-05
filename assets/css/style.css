@@ -259,12 +259,6 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-@media (max-width: 670px) {
-  #hero {
-    background-image: url("../img/desk.jpg");
-  }
-}
-
 @media (min-width: 992px) {
   #hero {
     padding-left: 160px;
