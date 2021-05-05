@@ -259,12 +259,15 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
+@media (max-width: 670px) {
+  #hero {
+    background-image: url("../img/desk.jpg");
+  }
+}
+
 @media (min-width: 992px) {
   #hero {
-    background: url("../img/desk.jpg") top right no-repeat;
     padding-left: 160px;
-    background-size: cover;
-  position: relative;
   }
 }
 
