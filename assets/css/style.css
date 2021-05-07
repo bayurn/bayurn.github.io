@@ -257,6 +257,7 @@ h1, h2, h3, h4, h5, h6 {
   background: url("../img/desk.jpg") top right no-repeat;
   background-size: cover;
   background-repeat: no-repeat !important;
+  position: fixed;
 }
 
 @media (min-width: 992px) {
