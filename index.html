@@ -174,7 +174,7 @@
                   <ul>
                     <li>
                       <i class="icofont-rounded-right"></i>
-                      <strong>Age:</strong> 19
+                      <strong>Age:</strong> <span id="myAge"></span> <span>years old</span>
                     </li>
                     <li>
                       <i class="icofont-rounded-right"></i>
@@ -1276,7 +1276,10 @@
     <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
     <script src="assets/vendor/typed.js/typed.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
-
+    <script>
+      var myAge = new Date().getFullYear() - 2001;
+      document.getElementById("myAge").innerHTML=myAge;
+    </script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
   </body>
