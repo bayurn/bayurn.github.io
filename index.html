@@ -90,7 +90,11 @@
       <div class="container" data-aos="zoom-in" data-aos-delay="100">
         <h1>Bayu Rizky Nurseto</h1>
         <p>
-          I'm <span class="typed" data-typed-items="Graphic Designer, Web Developer, 3D Builder"></span>
+          I'm
+          <span
+            class="typed"
+            data-typed-items="Graphic Designer, Web Developer, 3D Builder"
+          ></span>
         </p>
         <div class="social-links">
           <a href="https://github.com/bayurn" target="_blank" class="github"
@@ -174,7 +178,8 @@
                   <ul>
                     <li>
                       <i class="icofont-rounded-right"></i>
-                      <strong>Age:</strong> <span id="myAge"></span> <span>years old</span>
+                      <strong>Age:</strong> <span id="myAge"></span>
+                      <span>years old</span>
                     </li>
                     <li>
                       <i class="icofont-rounded-right"></i>
@@ -425,16 +430,13 @@
             </div>
 
             <div class="col-lg-6">
-
               <h3 class="resume-title">Professional Experience</h3>
 
               <div class="resume-item">
                 <h4>Front-End Web Developer</h4>
                 <h5>2021 - Present</h5>
                 <p><em>PT Otten Coffee Indonesia, Jakarta</em></p>
-                <p>
-                  Working on the Otten Coffee web.
-                </p>
+                <p>Working on the Otten Coffee web.</p>
               </div>
 
               <div class="resume-item">
@@ -1277,8 +1279,20 @@
     <script src="assets/vendor/typed.js/typed.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
     <script>
-      var myAge = new Date().getFullYear() - 2001;
-      document.getElementById("myAge").innerHTML=myAge;
+      // var myAge = new Date().getFullYear() - 2001;
+      // document.getElementById("myAge").innerHTML = myAge;
+
+      function getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+        return age;
+      }
+      document.getElementById("myAge").innerHTML = getAge("2001/04/19");
     </script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
