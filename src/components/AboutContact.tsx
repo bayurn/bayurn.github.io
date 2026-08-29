@@ -29,7 +29,7 @@ const TelegramIcon = ({ size = 24 }: { size?: number }) => (
 
 export default function AboutContact() {
   return (
-    <section id="about" className="relative bg-black/40">
+    <section id="about" className="pt-24 relative bg-black/40">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 

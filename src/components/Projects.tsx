@@ -17,34 +17,52 @@ const projects = [
     id: 1,
     title: "App News Portal",
     category: "Web & Mobile",
-    image: "/img/portfolio/app-newsportal-splash-screen.jpg",
+    image: "https://res.cloudinary.com/tvb96ebe/image/upload/v1787992940/app-newsportal-splash-screen.jpg",
     description: "A comprehensive news portal application featuring real-time updates and an intuitive reading experience.",
     tags: ["Figma", "UI/UX", "Mobile Design"],
     gallery: true,
     galleryImages: [
-      "/img/portfolio/app-newsportal-splash-screen.jpg",
-      "/img/portfolio/app-newsportal-detailed-1.jpg",
-      "/img/portfolio/app-newsportal-detailed-2.jpg",
-      "/img/portfolio/app-newsportal-detailed-3.jpg",
-      "/img/portfolio/app-newsportal-detailed-4.jpg",
-      "/img/portfolio/app-newsportal-detailed-5.jpg"
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787992940/app-newsportal-splash-screen.jpg",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787992940/app-newsportal-detailed-1.jpg",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787992940/app-newsportal-detailed-2.jpg",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787992940/app-newsportal-detailed-3.jpg",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787992940/app-newsportal-detailed-4.jpg",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787992940/app-newsportal-detailed-5.jpg"
     ]
   },
   {
     id: 2,
     title: "Samase Ankle Web",
     category: "Web & Mobile",
-    image: "/img/portfolio/samase-ankle-web-app-wordpress-thumbnail.jpg",
+    image: "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993077/samase-ankle-web-app-wordpress-thumbnail.jpg",
     description: "E-commerce platform showcasing products with a clean, responsive layout built on top of WordPress.",
     tags: ["WordPress", "PHP", "CSS", "E-Commerce"],
     gallery: true,
     galleryImages: [
-      "/img/portfolio/samase-ankle-web-app-wordpress-thumbnail.jpg",
-      "/img/portfolio/samase-ankle-web-app-wordpress.jpg",
-      "/img/portfolio/samase-ankle-products-web-app-wordpress-detailed.jpg",
-      "/img/portfolio/samase-ankle-account-web-app-wordpress-detailed.jpg",
-      "/img/portfolio/samase-ankle-wishlist-web-app-wordpress-detailed.jpg"
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993077/samase-ankle-web-app-wordpress-thumbnail.jpg",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993078/samase-ankle-web-app-wordpress.jpg",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993077/samase-ankle-products-web-app-wordpress-detailed.jpg",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993078/samase-ankle-wishlist-web-app-wordpress-detailed.jpg",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993077/samase-ankle-account-web-app-wordpress-detailed.jpg"
     ]
+  },
+  {
+    id: 3,
+    title: "Gemini Chatbot",
+    category: "Web & Mobile",
+    link: "https://gemini-chatbot-api-omega.vercel.app/",
+    github: "https://github.com/bayurn/gemini-chatbot-api",
+    image: "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993022/gemini-chatbot-1.png",
+    description: "An AI Chatbot application developed as part of the 'Maju Bareng AI' seminar by Hacktiv8.",
+    tags: ["HTML", "CSS", "JavaScript", "Gemini API"],
+    gallery: true,
+    galleryImages: [
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993022/gemini-chatbot-1.png",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993023/gemini-chatbot-2.png",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993596/Screenshot_2026-08-29_at_15.53.07.png",
+      "https://res.cloudinary.com/tvb96ebe/image/upload/v1787993392/Screenshot_2026-08-29_at_15.49.33.png"
+    ],
+    imagePosition: "object-top"
   }
 ];
 
@@ -132,12 +150,12 @@ export default function Projects() {
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className={clsx("object-cover transition-transform duration-700 group-hover:scale-105", (project as any).imagePosition || "object-center")}
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                     {(project as any).gallery && (
-                      <button 
-                        onClick={() => setSelectedGallery({ images: (project as any).galleryImages, index: 0 })} 
+                      <button
+                        onClick={() => setSelectedGallery({ images: (project as any).galleryImages, index: 0 })}
                         className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform cursor-pointer"
                         title="View Gallery"
                       >
@@ -145,18 +163,18 @@ export default function Projects() {
                       </button>
                     )}
                     {(project as any).link && (
-                      <a href={(project as any).link} className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform">
+                      <a href={(project as any).link} target="_blank" rel="noopener noreferrer" className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform">
                         <ExternalLink size={20} />
                       </a>
                     )}
                     {(project as any).github && (
-                      <a href={(project as any).github} className="p-3 bg-white/10 backdrop-blur text-white border border-white/20 rounded-full hover:bg-white/20 transition-all">
+                      <a href={(project as any).github} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 backdrop-blur text-white border border-white/20 rounded-full hover:bg-white/20 transition-all">
                         <GithubIcon size={20} />
                       </a>
                     )}
                   </div>
                 </div>
-                
+
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="text-xs font-semibold text-emerald-400 mb-2 tracking-wider uppercase">
                     {project.category}
@@ -193,7 +211,7 @@ export default function Projects() {
               onClick={() => setSelectedGallery(null)}
               className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
             >
-              <button 
+              <button
                 onClick={() => setSelectedGallery(null)}
                 className="absolute top-6 right-6 md:top-8 md:right-8 p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors z-50"
               >
@@ -202,13 +220,13 @@ export default function Projects() {
 
               {selectedGallery.images.length > 1 && (
                 <>
-                  <button 
+                  <button
                     onClick={prevImage}
                     className="absolute left-4 md:left-12 p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors z-50"
                   >
                     <ChevronLeft size={32} />
                   </button>
-                  <button 
+                  <button
                     onClick={nextImage}
                     className="absolute right-4 md:right-12 p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors z-50"
                   >
@@ -216,7 +234,7 @@ export default function Projects() {
                   </button>
                 </>
               )}
-              
+
               <motion.div
                 key={selectedGallery.index}
                 initial={{ opacity: 0, scale: 0.95 }}

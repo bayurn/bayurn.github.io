@@ -1,32 +1,40 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Briefcase, Calendar } from "lucide-react";
+import { motion } from 'framer-motion';
+import { Briefcase, Calendar } from 'lucide-react';
 
 const experiences = [
   {
-    role: "Front-End Web Developer",
-    company: "PT Otten Coffee Indonesia",
-    period: "2021 - Present",
+    role: 'Front-End Web Developer',
+    company: 'PT Otten Coffee Indonesia',
+    period: '2021 - Present',
     description:
-      "Developed and maintained scalable front-end architecture using React. Improved web performance (Core Web Vitals) and implemented responsive UI. Collaborated with designers to ensure pixel-perfect implementation of complex UI features.",
-    skills: ["React", "JavaScript", "CSS/SCSS", "Performance Optimization"],
+      'Developed and maintained scalable front-end architecture using React. Improved web performance (Core Web Vitals) and implemented responsive UI. Collaborated with designers to ensure pixel-perfect implementation of complex UI features. Developed and validated frontend features using AI-assisted development workflows, including AI code generation, code review, debugging, functional testing, and regression validation.',
+    skills: [
+      'React',
+      'JavaScript',
+      'TypeScript',
+      'CSS/SCSS',
+      'Git',
+      'Performance Optimization',
+      'AI-assisted development',
+    ],
   },
   {
-    role: "Graphic Designer",
-    company: "PT. Sari Makmur Sejahtera",
-    period: "2019 - 2020",
+    role: 'Graphic Designer',
+    company: 'PT. Sari Makmur Sejahtera',
+    period: '2019 - 2020',
     description:
-      "Designed marketing materials including logos, brochures, infographics, and social media content. Built and managed corporate websites using WordPress.",
-    skills: ["Photoshop", "Illustrator", "WordPress", "Branding"],
+      'Designed marketing materials including logos, brochures, infographics, and social media content. Built and managed corporate websites using WordPress.',
+    skills: ['Photoshop', 'Illustrator', 'WordPress', 'Branding'],
   },
   {
-    role: "Front-End Developer",
-    company: "< das / >",
-    period: "2020",
+    role: 'Front-End Developer',
+    company: '< das / >',
+    period: '2020',
     description:
-      "Responsible for creating a Content Management System (CMS) interface using ReactJS and Ant Design.",
-    skills: ["React", "Ant Design", "CMS"],
+      'Responsible for creating a Content Management System (CMS) interface using ReactJS and Ant Design.',
+    skills: ['React', 'Ant Design', 'CMS'],
   },
 ];
 
@@ -45,7 +53,8 @@ export default function Experience() {
             Professional <span className="text-blue-500">Experience</span>
           </h2>
           <p className="text-slate-400 max-w-2xl text-lg">
-            My journey from crafting visual identities to engineering robust web applications.
+            My journey from crafting visual identities to engineering robust web
+            applications.
           </p>
         </motion.div>
 
@@ -61,13 +70,15 @@ export default function Experience() {
             >
               {/* Subtle hover gradient */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/0 to-emerald-500/0 group-hover:from-blue-500/5 group-hover:to-emerald-500/5 transition-all duration-500" />
-              
+
               <div className="md:w-1/4 shrink-0">
                 <div className="flex items-center gap-2 text-slate-400 mb-2 font-mono text-sm">
                   <Calendar size={16} />
                   <span>{exp.period}</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1">{exp.company}</h3>
+                <h3 className="text-xl font-bold text-white mb-1">
+                  {exp.company}
+                </h3>
                 <div className="flex items-center gap-2 text-blue-400">
                   <Briefcase size={16} />
                   <span className="font-medium">{exp.role}</span>
