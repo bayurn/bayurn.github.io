@@ -75,7 +75,7 @@ export default function AboutContact() {
               <a href="https://t.me/bayurizky" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 hover:text-blue-400 transition-colors" title="Telegram">
                 <TelegramIcon size={24} />
               </a>
-              <a href="https://wa.me/628156297253" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 hover:text-emerald-400 transition-colors" title="WhatsApp">
+              <a href="https://wa.me/bayu_rizkyn" target="_blank" rel="noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-white/10 hover:text-emerald-400 transition-colors" title="WhatsApp">
                 <MessageCircle size={24} />
               </a>
             </div>
@@ -123,9 +123,9 @@ export default function AboutContact() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">Call / WhatsApp</h4>
-                  <a href="https://wa.me/628156297253" target="_blank" rel="noreferrer" className="text-slate-400 text-sm hover:text-white transition-colors">
-                    +62 815 6297 253
+                  <h4 className="text-white font-medium mb-1">WhatsApp</h4>
+                  <a href="https://wa.me/bayu_rizkyn" target="_blank" rel="noreferrer" className="text-slate-400 text-sm hover:text-white transition-colors">
+                    @bayu_rizkyn
                   </a>
                 </div>
               </div>
