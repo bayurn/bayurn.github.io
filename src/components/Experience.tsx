@@ -5,9 +5,22 @@ import { Briefcase, Calendar } from 'lucide-react';
 
 const experiences = [
   {
-    role: 'Front-End Web Developer',
     company: 'PT Otten Coffee Indonesia',
-    period: '2021 - Present',
+    period: 'Apr 2021 - Present',
+    roles: [
+      {
+        title: 'Frontend Web Developer (Full-time)',
+        period: 'Jan 2024 – Present',
+      },
+      {
+        title: 'Frontend Web Developer (Contract)',
+        period: 'Jan 2022 – Jan 2024',
+      },
+      {
+        title: 'Frontend Web Developer (Internship)',
+        period: 'Apr 2021 – Jan 2022',
+      },
+    ],
     description:
       'Developed and maintained scalable front-end architecture using React. Improved web performance (Core Web Vitals) and implemented responsive UI. Collaborated with designers to ensure pixel-perfect implementation of complex UI features. Developed and validated frontend features using AI-assisted development workflows, including AI code generation, code review, debugging, functional testing, and regression validation.',
     skills: [
@@ -16,6 +29,8 @@ const experiences = [
       'TypeScript',
       'CSS/SCSS',
       'Git',
+      'Next.js',
+      'Angular',
       'Performance Optimization',
       'AI-assisted development',
     ],
@@ -26,7 +41,13 @@ const experiences = [
     period: '2019 - 2020',
     description:
       'Designed marketing materials including logos, brochures, infographics, and social media content. Built and managed corporate websites using WordPress.',
-    skills: ['Photoshop', 'Illustrator', 'WordPress', 'Branding'],
+    skills: [
+      'Photoshop',
+      'Illustrator',
+      'After Effects',
+      'WordPress',
+      'Branding',
+    ],
   },
   {
     role: 'Front-End Developer',
@@ -76,13 +97,33 @@ export default function Experience() {
                   <Calendar size={16} />
                   <span>{exp.period}</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1">
+                <h3 className="text-xl font-bold text-white mb-4">
                   {exp.company}
                 </h3>
-                <div className="flex items-center gap-2 text-blue-400">
-                  <Briefcase size={16} />
-                  <span className="font-medium">{exp.role}</span>
-                </div>
+
+                {exp.roles ? (
+                  <div className="space-y-3">
+                    {exp.roles.map((r, i) => (
+                      <div
+                        key={i}
+                        className="relative pl-4 border-l border-white/10"
+                      >
+                        <div className="absolute w-2 h-2 rounded-full bg-blue-500 -left-[4.5px] top-1.5 ring-4 ring-slate-900/50" />
+                        <div className="text-slate-200 font-medium text-sm mb-0.5 leading-tight">
+                          {r.title}
+                        </div>
+                        <div className="text-slate-400 text-xs font-mono">
+                          {r.period}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2 text-blue-400">
+                    <Briefcase size={16} />
+                    <span className="font-medium">{exp.role}</span>
+                  </div>
+                )}
               </div>
 
               <div className="md:w-3/4">
