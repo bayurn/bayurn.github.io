@@ -50,6 +50,15 @@ const experiences = [
     ],
   },
   {
+    role: 'Web Design & Digital Marketing Intern',
+    company: 'Sociocaster - Bandung, Indonesia',
+    period: 'Jul 2018 – Oct 2018',
+    description:
+      'Designed website layouts using Melissa and prepared production-ready pages. Created written content for digital marketing and promotional campaigns, while actively promoting the Sociocaster platform at ITB startup events.',
+    skills: ['Web Design', 'Digital Marketing', 'Content Writing', 'Melissa'],
+  },
+  /*
+  {
     role: 'Front-End Developer',
     company: '< das / >',
     period: '2020',
@@ -57,6 +66,7 @@ const experiences = [
       'Responsible for creating a Content Management System (CMS) interface using ReactJS and Ant Design.',
     skills: ['React', 'Ant Design', 'CMS'],
   },
+  */
 ];
 
 export default function Experience() {
@@ -127,11 +137,27 @@ export default function Experience() {
               </div>
 
               <div className="md:w-3/4">
-                <p className="text-slate-300 leading-relaxed mb-6">
-                  {exp.description}
-                </p>
+                {exp.description.includes('\n') ? (
+                  <ul className="text-slate-300 leading-relaxed mb-6 space-y-2">
+                    {exp.description
+                      .split('\n')
+                      .filter(Boolean)
+                      .map((item, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <span className="text-blue-400 mt-1.5 shrink-0 text-xs">
+                            ●
+                          </span>
+                          <span>{item.replace(/^[●•\s]+/, '')}</span>
+                        </li>
+                      ))}
+                  </ul>
+                ) : (
+                  <p className="text-slate-300 leading-relaxed mb-6">
+                    {exp.description}
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill, i) => (
+                  {exp.skills?.map((skill, i) => (
                     <span
                       key={i}
                       className="px-3 py-1 text-xs font-medium bg-white/5 text-slate-300 border border-white/10 rounded-full"
