@@ -2,61 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { Code2, Smartphone, PenTool, GitBranch } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
-const skillCategories = [
-  {
-    title: 'Frontend Development',
-    icon: <Code2 size={24} className="text-blue-400" />,
-    skills: [
-      'React',
-      'Next.js',
-      'TypeScript',
-      'JavaScript (ES6+)',
-      'Tailwind CSS',
-      'Redux',
-      'HTML5/CSS3',
-      'Angular',
-    ],
-  },
-  {
-    title: 'Mobile App Development',
-    icon: <Smartphone size={24} className="text-emerald-400" />,
-    skills: [
-      'React Native',
-      'Expo',
-      'Mobile UI Patterns',
-      'Cross-Platform Optimization',
-    ],
-  },
-  {
-    title: 'UI/UX & Graphic Design',
-    icon: <PenTool size={24} className="text-purple-400" />,
-    skills: [
-      'Figma',
-      'Adobe Photoshop',
-      'Adobe Illustrator',
-      'Wireframing',
-      'Prototyping',
-      'Design Systems',
-    ],
-  },
-  {
-    title: 'Tools & Ecosystem',
-    icon: <GitBranch size={24} className="text-amber-400" />,
-    skills: [
-      'Git',
-      'GitHub',
-      'WordPress (CMS)',
-      'RESTful APIs',
-      'Vite',
-      'NPM/Yarn',
-      'Postman',
-      'ngrok',
-    ],
-  },
+const categoryIcons = [
+  <Code2 key="code" size={24} className="text-blue-400" />,
+  <Smartphone key="mobile" size={24} className="text-emerald-400" />,
+  <PenTool key="design" size={24} className="text-purple-400" />,
+  <GitBranch key="tools" size={24} className="text-amber-400" />,
 ];
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="py-24 relative overflow-hidden">
       {/* Decorative gradient */}
@@ -71,18 +28,18 @@ export default function Skills() {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Technical <span className="text-gradient">Arsenal</span>
+            {t.skills.titlePrefix}{' '}
+            <span className="text-gradient">{t.skills.titleHighlight}</span>
           </h2>
           <p className="text-slate-400 text-lg">
-            A comprehensive overview of the tools, frameworks, and technologies
-            I use to bring ideas to life.
+            {t.skills.subtitle}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {skillCategories.map((category, index) => (
+          {t.skills.categories.map((category, index) => (
             <motion.div
-              key={category.title}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -91,7 +48,7 @@ export default function Skills() {
             >
               <div className="flex items-center gap-4 mb-6 pb-6 border-b border-white/5">
                 <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:border-white/20 transition-colors">
-                  {category.icon}
+                  {categoryIcons[index]}
                 </div>
                 <h3 className="text-xl font-bold text-white">
                   {category.title}

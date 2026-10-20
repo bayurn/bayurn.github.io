@@ -2,74 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar } from 'lucide-react';
-
-const experiences = [
-  {
-    company: 'PT Otten Coffee Indonesia',
-    period: 'Apr 2021 - Present',
-    roles: [
-      {
-        title: 'Frontend Web Developer (Full-time)',
-        period: 'Jan 2024 – Present',
-      },
-      {
-        title: 'Frontend Web Developer (Contract)',
-        period: 'Jan 2022 – Jan 2024',
-      },
-      {
-        title: 'Frontend Web Developer (Internship)',
-        period: 'Apr 2021 – Jan 2022',
-      },
-    ],
-    description:
-      'Developed and maintained scalable front-end architecture using React. Improved web performance (Core Web Vitals) and implemented responsive UI. Collaborated with designers to ensure pixel-perfect implementation of complex UI features. Developed and validated frontend features using AI-assisted development workflows, including AI code generation, code review, debugging, functional testing, and regression validation.',
-    skills: [
-      'React',
-      'JavaScript',
-      'TypeScript',
-      'CSS/SCSS',
-      'Git',
-      'Next.js',
-      'Angular',
-      'Performance Optimization',
-      'AI-assisted development',
-    ],
-  },
-  {
-    role: 'Graphic Designer',
-    company: 'PT. Sari Makmur Sejahtera',
-    period: '2019 - 2020',
-    description:
-      'Designed marketing materials including logos, brochures, infographics, and social media content. Built and managed corporate websites using WordPress.',
-    skills: [
-      'Photoshop',
-      'Illustrator',
-      'After Effects',
-      'WordPress',
-      'Branding',
-    ],
-  },
-  {
-    role: 'Web Design & Digital Marketing Intern',
-    company: 'Sociocaster - Bandung, Indonesia',
-    period: 'Jul 2018 – Oct 2018',
-    description:
-      'Designed website layouts using Melissa and prepared production-ready pages. Created written content for digital marketing and promotional campaigns, while actively promoting the Sociocaster platform at ITB startup events.',
-    skills: ['Web Design', 'Digital Marketing', 'Content Writing', 'Melissa'],
-  },
-  /*
-  {
-    role: 'Front-End Developer',
-    company: '< das / >',
-    period: '2020',
-    description:
-      'Responsible for creating a Content Management System (CMS) interface using ReactJS and Ant Design.',
-    skills: ['React', 'Ant Design', 'CMS'],
-  },
-  */
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Experience() {
+  const { t } = useLanguage();
+
   return (
     <section id="experience" className="py-24 relative">
       <div className="container mx-auto px-6 md:px-12">
@@ -81,16 +18,16 @@ export default function Experience() {
           className="mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Professional <span className="text-blue-500">Experience</span>
+            {t.experience.titlePrefix}{' '}
+            <span className="text-blue-500">{t.experience.titleHighlight}</span>
           </h2>
           <p className="text-slate-400 max-w-2xl text-lg">
-            My journey from crafting visual identities to engineering robust web
-            applications.
+            {t.experience.subtitle}
           </p>
         </motion.div>
 
         <div className="space-y-8">
-          {experiences.map((exp, index) => (
+          {t.experience.experiences.map((exp, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -20 }}

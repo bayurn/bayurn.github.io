@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
 
 const GithubIcon = ({ size = 24 }: { size?: number }) => (
   <svg
@@ -76,6 +77,7 @@ const TelegramIcon = ({ size = 24 }: { size?: number }) => (
 );
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [isCVDropdownOpen, setIsCVDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -131,7 +133,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Available for new opportunities
+            {t.hero.status}
           </motion.div>
 
           <motion.h1
@@ -140,8 +142,25 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight"
           >
-            A <span className="text-gradient">Design-Minded</span> <br />
-            Frontend Developer.
+            {t.hero.title.line1Text}
+            {t.hero.title.line1Highlight && (
+              <>
+                {' '}
+                <span className="text-gradient">
+                  {t.hero.title.line1Highlight}
+                </span>
+              </>
+            )}
+            <br />
+            {t.hero.title.line2Text}
+            {t.hero.title.line2Highlight && (
+              <>
+                {t.hero.title.line2Text ? ' ' : ''}
+                <span className="text-gradient">
+                  {t.hero.title.line2Highlight}
+                </span>
+              </>
+            )}
           </motion.h1>
 
           <motion.p
@@ -150,9 +169,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl"
           >
-            I specialize in crafting high-performance, scalable web
-            architectures and intuitive user interfaces. Bridging the gap
-            between design and engineering.
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -165,15 +182,15 @@ export default function Hero() {
               href="#projects"
               className="flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-slate-200 transition-colors"
             >
-              View Work <ArrowRight size={18} />
+              {t.hero.viewWork} <ArrowRight size={18} />
             </a>
 
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsCVDropdownOpen(!isCVDropdownOpen)}
-                className="flex items-center gap-2 px-8 py-4 bg-white/5 border border-white/10 font-semibold rounded-full hover:bg-white/10 transition-colors"
+                className="flex items-center gap-2 px-8 py-4 bg-white/5 border border-white/10 font-semibold rounded-full hover:bg-white/10 transition-colors cursor-pointer"
               >
-                View CV{' '}
+                {t.hero.viewCV}{' '}
                 <ChevronDown
                   size={18}
                   className={`transition-transform duration-300 ${isCVDropdownOpen ? 'rotate-180' : ''}`}
@@ -196,7 +213,7 @@ export default function Hero() {
                       className="px-4 py-3 hover:bg-white/10 text-sm font-medium transition-colors text-center text-slate-200 flex items-center justify-center gap-2"
                       onClick={() => setIsCVDropdownOpen(false)}
                     >
-                      Bahasa Indonesia <ExternalLink size={14} />
+                      {t.hero.cvIndonesian} <ExternalLink size={14} />
                     </a>
                     <div className="h-px bg-white/10 w-full" />
                     <a
@@ -206,7 +223,7 @@ export default function Hero() {
                       className="px-4 py-3 hover:bg-white/10 text-sm font-medium transition-colors text-center text-slate-200 flex items-center justify-center gap-2"
                       onClick={() => setIsCVDropdownOpen(false)}
                     >
-                      English <ExternalLink size={14} />
+                      {t.hero.cvEnglish} <ExternalLink size={14} />
                     </a>
                   </motion.div>
                 )}

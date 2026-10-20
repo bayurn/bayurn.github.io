@@ -11,6 +11,7 @@ const GithubIcon = ({ size = 24 }: { size?: number }) => (
   </svg>
 );
 import clsx from "clsx";
+import { useLanguage } from "@/context/LanguageContext";
 
 const projects = [
   {
@@ -69,6 +70,7 @@ const projects = [
 const categories = ["All", "Web & Mobile", "Graphic Design"];
 
 export default function Projects() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedGallery, setSelectedGallery] = useState<{ images: string[], index: number } | null>(null);
 
@@ -107,10 +109,10 @@ export default function Projects() {
           className="mb-12 text-center md:text-left"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Selected <span className="text-emerald-500">Works</span>
+            {t.projects.titlePrefix} <span className="text-emerald-500">{t.projects.titleHighlight}</span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto md:mx-0 text-lg mb-8">
-            A showcase of my frontend engineering projects and visual design experiments.
+            {t.projects.subtitle}
           </p>
 
           {/* Filter Tabs */}
@@ -126,7 +128,7 @@ export default function Projects() {
                     : "bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10"
                 )}
               >
-                {category}
+                {t.projects.categoryLabels[category] || category}
               </button>
             ))}
           </div>
@@ -177,13 +179,13 @@ export default function Projects() {
 
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="text-xs font-semibold text-emerald-400 mb-2 tracking-wider uppercase">
-                    {project.category}
+                    {t.projects.categoryLabels[project.category] || project.category}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">
                     {project.title}
                   </h3>
                   <p className="text-slate-400 mb-6 flex-1">
-                    {project.description}
+                    {t.projects.descriptions[project.id] || project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map((tag, i) => (

@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Portfolio of Bayu Rizky Nurseto, a Design-Minded Web Engineer specializing in React, Next.js, and modern UI/UX.",
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col antialiased selection:bg-blue-500/30" suppressHydrationWarning>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

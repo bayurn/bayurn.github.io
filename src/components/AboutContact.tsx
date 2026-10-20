@@ -27,7 +27,11 @@ const TelegramIcon = ({ size = 24 }: { size?: number }) => (
   </svg>
 );
 
+import { useLanguage } from "@/context/LanguageContext";
+
 export default function AboutContact() {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="pt-24 relative bg-black/40">
       <div className="container mx-auto px-6 md:px-12">
@@ -41,24 +45,17 @@ export default function AboutContact() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              About <span className="text-blue-500">Me</span>
+              {t.about.titlePrefix} <span className="text-blue-500">{t.about.titleHighlight}</span>
             </h2>
             <div className="prose prose-invert max-w-none text-slate-300">
               <p className="text-lg leading-relaxed mb-6">
-                Hi, I am Bayu Rizky Nurseto. I blend the analytical thinking of a developer
-                with the creative eye of a designer.
+                {t.about.p1}
               </p>
               <p className="text-lg leading-relaxed mb-6">
-                Currently pursuing a degree in Information Systems at Universitas Terbuka,
-                I hold a background in Multimedia which sparked my passion for both coding and design.
-                With over a year of experience in graphic design and more than a year specializing
-                as a Front-End Web Developer, I thrive at the intersection of aesthetics and functionality.
+                {t.about.p2}
               </p>
               <p className="text-lg leading-relaxed mb-8">
-                I am deeply interested in building performant web applications using React and Next.js,
-                and I am currently expanding my skill set into mobile development with React Native Expo.
-                I believe that a great product is not just about clean code, but also about a seamless,
-                intuitive user experience.
+                {t.about.p3}
               </p>
             </div>
 
@@ -90,7 +87,7 @@ export default function AboutContact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="glass-card p-8 md:p-10"
           >
-            <h3 className="text-2xl font-bold text-white mb-8">Let's connect</h3>
+            <h3 className="text-2xl font-bold text-white mb-8">{t.contact.title}</h3>
 
             <div className="space-y-8">
               <div className="flex items-start gap-4">
@@ -98,10 +95,9 @@ export default function AboutContact() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">Location</h4>
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    Jalan Setra Dago Utara VI Blok Kramat RT.008/012<br />
-                    Antapani Wetan, Kota Bandung
+                  <h4 className="text-white font-medium mb-1">{t.contact.locationTitle}</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">
+                    {t.contact.location}
                   </p>
                 </div>
               </div>
@@ -111,7 +107,7 @@ export default function AboutContact() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">Email</h4>
+                  <h4 className="text-white font-medium mb-1">{t.contact.emailTitle}</h4>
                   <a href="mailto:bayurizkynurseto19@gmail.com" className="text-slate-400 text-sm hover:text-white transition-colors">
                     bayurizkynurseto19@gmail.com
                   </a>
@@ -123,7 +119,7 @@ export default function AboutContact() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">WhatsApp</h4>
+                  <h4 className="text-white font-medium mb-1">{t.contact.whatsappTitle}</h4>
                   <a href="https://wa.me/bayu_rizkyn" target="_blank" rel="noreferrer" className="text-slate-400 text-sm hover:text-white transition-colors">
                     @bayu_rizkyn
                   </a>
@@ -137,8 +133,8 @@ export default function AboutContact() {
 
       {/* Footer */}
       <footer className="mt-24 border-t border-white/10 pt-8 pb-12 text-center text-slate-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} Bayu Rizky Nurseto. All rights reserved.</p>
-        <p className="mt-2">Designed and built with Next.js & Tailwind CSS.</p>
+        <p>&copy; {new Date().getFullYear()} Bayu Rizky Nurseto. {t.footer.rights}</p>
+        <p className="mt-2">{t.footer.builtWith}</p>
       </footer>
     </section>
   );
